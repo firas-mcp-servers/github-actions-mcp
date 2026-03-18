@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "github-actions-mcp"
+version = "0.1.0"
+description = "MCP server for managing GitHub Actions"
+authors = ["firasmosbehi"]
+readme = "README.md"
+packages = [{ include = "github_actions_mcp", from = "src" }]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+mcp = { version = "^1.0", extras = ["cli"] }
+PyGithub = "^2.1"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-mock = "^3.12"
+ruff = "^0.4"
+mypy = "^1.10"
+
+[tool.poetry.scripts]
+github-actions-mcp = "github_actions_mcp.server:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+
+[tool.mypy]
+python_version = "3.11"
+strict = false
+ignore_missing_imports = true
