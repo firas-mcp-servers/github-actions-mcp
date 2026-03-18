@@ -12,7 +12,7 @@ def register(mcp: FastMCP) -> None:
             gh = get_client()
             r = gh.get_repo(f"{owner}/{repo}")
             run = r.get_workflow_run(run_id)
-            jobs = list(run.get_jobs())  # PyGithub API: get_jobs(), not jobs()
+            jobs = list(run.jobs())  # PyGithub 2.x API: jobs() returns PaginatedList
             if not jobs:
                 return "No jobs found."
             lines = [f"- [{j.id}] {j.name} | {j.status} | {j.conclusion}" for j in jobs]

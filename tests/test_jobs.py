@@ -19,7 +19,7 @@ def test_list_jobs_returns_names():
     mock_job.conclusion = "success"
 
     mock_run = MagicMock()
-    mock_run.get_jobs.return_value = [mock_job]
+    mock_run.jobs.return_value = [mock_job]
 
     mock_repo = MagicMock()
     mock_repo.get_workflow_run.return_value = mock_run
