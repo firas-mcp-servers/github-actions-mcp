@@ -13,7 +13,7 @@ jobs:
         with:
           python-version: "3.11"
       - run: pip install poetry
-      - run: poetry install --no-dev
+      - run: poetry install --only main
       - run: poetry build
       - uses: pypa/gh-action-pypi-publish@release/v1
         with:
